@@ -1,0 +1,14 @@
+extend type Query {
+    reviews(customerId: ID!): [Review]
+}
+
+type Review {
+    id: ID!
+    rating: Int
+    text: String!
+}
+
+extend type Mutation {
+    newReview(id: ID!, rating: Int, text:String!) : Review!
+
+}

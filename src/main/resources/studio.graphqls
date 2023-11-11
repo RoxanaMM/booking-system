@@ -1,0 +1,17 @@
+type Query {
+    studioById(id: ID): Studio
+    studios: [Studio]
+}
+
+type Studio {
+    id: ID
+    name: String
+    contact: Contact
+    booking: Booking
+}
+
+type Mutation {
+    newStudio(name: String!, amount: Float!) : Studio!
+    deleteStudio(id: ID!) : Boolean
+    updateStudio(id:ID!, amount: Float!) : Studio!
+}

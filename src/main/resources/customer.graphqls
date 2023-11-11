@@ -1,0 +1,22 @@
+extend type Query {
+    customerById(id: ID): Customer
+    customers: [Customer]
+}
+
+type Customer {
+    id: ID
+    name: String
+    booking: Booking
+}
+
+extend type Mutation {
+    newCustomer(CustomerDetails: CustomerDetails!) : Customer!
+    deleteCustomer(id: ID!) : Boolean
+    updateCustomer(id:ID!, CustomerDetails: CustomerDetails!) : Customer!
+}
+
+input CustomerDetails{
+    username: String!
+    email: String!
+    password: String!
+}

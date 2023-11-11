@@ -1,0 +1,27 @@
+type Booking {
+    id: ID!,
+    rating: Int!,
+    amount: String # ? e.g. 120 kr?
+    bookingTime: String,
+    bookingDate: String,
+    contact: Contact
+}
+
+type Contact {
+    id: ID!
+    phoneNumber: String!
+    email: String!
+    location: String! #for now
+}
+
+input BookingDetails{
+    amount: String,
+    bookingTime: String,
+    bookingDate: String
+}
+
+extend type Mutation {
+    newBooking(bookingDetails: BookingDetails!) : Customer!
+    deleteBooking(id: ID!) : Boolean
+    updateBooking(id:ID!, CustomerDetails: CustomerDetails!) : Customer!
+}
