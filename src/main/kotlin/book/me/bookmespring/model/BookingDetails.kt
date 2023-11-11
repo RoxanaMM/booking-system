@@ -9,4 +9,5 @@ class BookingDetails(
     val bookingTime: LocalTime,
     val bookingDate: LocalDate,
     val contact: Contact? = null
+
 )
