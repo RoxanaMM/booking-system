@@ -1,9 +1,12 @@
 type Booking {
     id: ID!,
+    #TODO: move rating to Studio
     rating: Int!,
     amount: String # ? e.g. 120 kr?
+    #TODO: Replace with proper type
     bookingTime: String,
     bookingDate: String,
+    #TODO: Replace this to customerContact and studioContact
     contact: Contact
 }
 
@@ -14,7 +17,7 @@ type Contact {
     location: String! #for now
 }
 
-input BookingDetails{
+input BookingDetails {
     amount: String,
     bookingTime: String,
     bookingDate: String

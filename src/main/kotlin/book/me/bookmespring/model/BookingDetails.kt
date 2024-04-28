@@ -8,5 +8,6 @@ class BookingDetails(
     val amount: String,
     val bookingTime: LocalTime,
     val bookingDate: LocalDate,
-    val contact: Contact? = null
+    val contact: Contact? = null,
+    val bookingStatus: BookingStatus
 )

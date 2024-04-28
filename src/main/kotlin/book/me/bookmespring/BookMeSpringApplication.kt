@@ -11,3 +11,4 @@ class BookMeSpringApplication
 fun main(args: Array<String>) {
     runApplication<BookMeSpringApplication>(*args)
 }
+

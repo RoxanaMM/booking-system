@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphiQL</title>
+    <!-- Include necessary stylesheets and scripts -->
+    <link rel="stylesheet" href="https://unpkg.com/graphiql/graphiql.min.css" />
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/graphiql/graphiql.min.js"></script>
+</head>
+<body style="height: 100vh; margin: 0;">
+<!-- Create a container element for GraphiQL -->
+
+<div id="graphiql" style="height: 100vh;"></div>
+
+<script>
+    const graphiqlContainer = document.getElementById('graphiql');
+    const graphqlEndpoint = '/graphql'; // Adjust the endpoint path
+
+    // Initialize GraphiQL
+    ReactDOM.render(
+        React.createElement(GraphiQL, {
+            fetcher: (operation) => {
+                return fetch(graphqlEndpoint, {
+                    method: 'post',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(operation),
+                }).then(response => response.json());
+            },
+        }),
+        graphiqlContainer
+    );
+</script>
+</body>
+</html>

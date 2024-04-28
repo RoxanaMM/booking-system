@@ -10,5 +10,4 @@ type Review {
 
 extend type Mutation {
     newReview(id: ID!, rating: Int, text:String!) : Review!
-
 }

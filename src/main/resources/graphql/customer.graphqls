@@ -3,20 +3,24 @@ extend type Query {
     customers: [Customer]
 }
 
+#TODO: Rename this to User
 type Customer {
     id: ID
+    #TODO: Rename this to fullName
     name: String
     booking: Booking
+    #TODO: Add address field
+}
+
+input CustomerDetails {
+    username: String!
+    email: String!
+    #TODO: Should not be here
+    password: String!
 }
 
 extend type Mutation {
     newCustomer(CustomerDetails: CustomerDetails!) : Customer!
     deleteCustomer(id: ID!) : Boolean
     updateCustomer(id:ID!, CustomerDetails: CustomerDetails!) : Customer!
-}
-
-input CustomerDetails{
-    username: String!
-    email: String!
-    password: String!
 }
